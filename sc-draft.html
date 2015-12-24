@@ -1,0 +1,70 @@
+<!-- simple-todos.html -->
+<head>
+  <title>XE1T SC Example</title>
+</head>
+
+<body>
+  <header class="navbar navbar-fixed-top emo-navbar">
+    <div class="navbar-header" style="height:40px">
+      <button type="button" class="navbar-toggle"
+	      data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="icon-bar"></span>                      
+	<span class="icon-bar"></span>                           
+	<span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand toggle-sidebar" style="cursor\
+						    :pointer;">
+	XENON1T Slow Control Viewer
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-right" style="margin-right:10px;margin-top:10px;">
+
+    </ul>
+  </header>
+  <div class="container">
+<br>    
+    <div class="col-xs-3"><strong>Updated: </strong></div>
+    <div class="col-xs-6">{{scvalues.time}}</div>
+    <div class="col-xs-3"><button class="btn btn-info" id="refresh">Refresh</button></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <ul>
+	  {{#each scvalues.sensors}}
+	  {{> text}}
+	  {{/each}}
+	</ul>      
+      </div>
+
+      <div class="col-md-8 col-sm-8 col-xs-12">
+	{{> plot_0}}
+      </div>
+    </div>
+  </div>
+</body>
+<template name="text">
+  <div class="row">
+    <div class="col-xs-6">
+      <strong>{{ name }}:&nbsp;</strong>
+    </div>
+    <div class="col-xs-6">
+      {{ value }}
+    </div>    
+  </div>
+  <div id="flot-{{index}}" class='flot' style="height:150px"></div>
+  
+</template>
+
+<template name="plot_0">
+<!--  <div id="flot-0" class='flot' style="height:150px"></div>
+  <div id="flot-1" class='flot' style="height:150px"></div>
+  <div id="flot-2" class='flot' style="height:150px"></div>
+  <div id="flot-3" class='flot' style="height:150px"></div>
+  <div id="flot-4" class='flot' style="height:150px"></div>
+  <div id="flot-5" class='flot' style="height:150px"></div>
+  <div id="flot-6" class='flot' style="height:150px"></div>
+  <div id="flot-7" class='flot' style="height:150px"></div>
+  <div id="flot-8" class='flot' style="height:150px"></div>
+  <div id="flot-9" class='flot' style="height:150px"></div>
+  <div id="flot-10" class='flot' style="height:150px"></div>
+  -->
+</template>

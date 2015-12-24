@@ -1,0 +1,35 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "packageVariables": [
+    {
+      "name": "insertSteps"
+    },
+    {
+      "name": "allocatedAxes"
+    },
+    {
+      "name": "fmt"
+    },
+    {
+      "name": "i"
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "jquery"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.cordova/packages/flot.js",
+      "length": 59619,
+      "offset": 0,
+      "servePath": "/packages/flot.js",
+      "sourceMap": "web.cordova/packages/flot.js.map"
+    }
+  ]
+}

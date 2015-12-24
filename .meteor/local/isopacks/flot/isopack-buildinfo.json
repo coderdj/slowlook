@@ -1,0 +1,52 @@
+{
+  "builtBy": "meteor/16",
+  "unibuildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/dan/Work/meteor/sc_draft/packages/flot/package.js": "f4901cf2af3b12cf5ea3e3f31494e54d92154805"
+      },
+      "directories": []
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/dan/Work/meteor/sc_draft/packages/flot/package.js": "f4901cf2af3b12cf5ea3e3f31494e54d92154805",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.min.js": "93cfeb0ff170e6bd3d58de918738de00ebaaf3a4",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.pie.min.js": "596ce2ad70191a92f4cc33fe60d95b6685871b6f",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.resize.min.js": "812244015695bd2d66edfd993bde4e577d8a97d0",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.stack.min.js": "5fda15047703b140a01cde4225317201b7cc44a9"
+      },
+      "directories": []
+    },
+    "web.cordova.json": {
+      "files": {
+        "/home/dan/Work/meteor/sc_draft/packages/flot/package.js": "f4901cf2af3b12cf5ea3e3f31494e54d92154805",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.min.js": "93cfeb0ff170e6bd3d58de918738de00ebaaf3a4",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.pie.min.js": "596ce2ad70191a92f4cc33fe60d95b6685871b6f",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.resize.min.js": "812244015695bd2d66edfd993bde4e577d8a97d0",
+        "/home/dan/Work/meteor/sc_draft/packages/flot/lib/jquery.flot.stack.min.js": "5fda15047703b140a01cde4225317201b7cc44a9"
+      },
+      "directories": []
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/dan/Work/meteor/sc_draft/packages/flot/package.js": "f4901cf2af3b12cf5ea3e3f31494e54d92154805"
+    },
+    "directories": []
+  },
+  "pluginProviderPackageMap": {
+    "flot": {
+      "kind": "local",
+      "sourceRoot": "/home/dan/Work/meteor/sc_draft/packages/flot"
+    },
+    "meteor": {
+      "kind": "versioned",
+      "version": "1.1.6"
+    },
+    "jquery": {
+      "kind": "versioned",
+      "version": "1.11.3_2"
+    }
+  },
+  "includeCordovaUnibuild": true
+}
