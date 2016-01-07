@@ -267,6 +267,12 @@
       "path": "packages/global-imports.js"
     },
     {
+      "path": "app/server/lib/settings.js"
+    },
+    {
+      "path": "app/server/server.js"
+    },
+    {
       "path": "app/sc-draft.js"
     },
     {

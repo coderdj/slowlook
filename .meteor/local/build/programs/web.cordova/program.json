@@ -587,9 +587,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/template.sc-draft.js?8f02fe340816c98b0c7a6469df0f8beb98e74dda",
-      "size": 3355,
-      "hash": "8f02fe340816c98b0c7a6469df0f8beb98e74dda"
+      "url": "/template.sc-draft.js?be42007f7087f071ab3e6e267acc54e1f4c59658",
+      "size": 3471,
+      "hash": "be42007f7087f071ab3e6e267acc54e1f4c59658"
     },
     {
       "path": "app/client/javascript/bootstrap.min.js",
@@ -605,9 +605,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/sc-draft.js?36e1f1f974bca79c54753812f8523aaf07522174",
-      "size": 5963,
-      "hash": "36e1f1f974bca79c54753812f8523aaf07522174"
+      "url": "/sc-draft.js?824d8de24d8d145e6c92b3e41455dfb0fbc1d63b",
+      "size": 4233,
+      "hash": "824d8de24d8d145e6c92b3e41455dfb0fbc1d63b"
     },
     {
       "path": "92d8b278a47c88b10779bc00c937a00b5952bdb4.css",

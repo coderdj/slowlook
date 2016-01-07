@@ -1,6 +1,8 @@
 (function(){// simple-todos.js
 SCvalues = new Mongo.Collection("sc");
 if(Meteor.isServer){
+    console.log(JSON.stringify(process.env.MONGO_URL));
+    console.log("done");
     // This code only runs on the server
     //Meteor.publish("sc", function () {
 //	return Tasks.find();
@@ -10,14 +12,16 @@ if(Meteor.isServer){
 if (Meteor.isClient) {
     Session.setDefault("plotted", false);
     Meteor.subscribe("sc");
-    
+
     // This code only runs on the client
     Template.body.helpers({
 	
       scvalues: function () {
 	  var sort = {"time": -1};
 	  var find = {};
-
+	  console.log(SCvalues.find());
+	  console.log("here");
+	  
 	  var doc = SCvalues.findOne(find, {sort:sort});
 	  if(doc == null)
 	      return;
@@ -25,7 +29,6 @@ if (Meteor.isClient) {
 	  values = [];
 	  for(var n=0; n<doc['sensors'].length;n+=1){
 	      fields.push(doc['sensors'][n]['name']);
-//	      values.push(doc['sensors'][n]['value']);
 	  }
 	  fields.sort();
 	  for(var n=0; n<fields.length; n+=1){
@@ -39,7 +42,7 @@ if (Meteor.isClient) {
 	  for(var n=0; n<fields.length; n+=1){
 	      retdict['sensors'].push({"index": n, "name": fields[n], "value": values[n]});
 	  }
-	      return retdict;//SCvalues.findOne(find,{sort:sort});
+	  return retdict;//SCvalues.findOne(find,{sort:sort});
 	  
       },
 
@@ -47,7 +50,6 @@ if (Meteor.isClient) {
 
     function MakePlots(){
 	// Get data
-	console.log("HI!");
 	var sort = {"time": -1};
 	var find = {};
 	doc = SCvalues.findOne(find, {sort:sort});
@@ -122,11 +124,11 @@ if (Meteor.isClient) {
 	    ],
 			   {
 			       series: {
-				   lines: {show: !0},
-				   points: {show: !0}
+				   lines: {show: true, lineWidth: 1},
+				   points: {show: false}
 			       },
 			       grid: {
-				   hoverable: !0, clickable: !0
+				   hoverable: false, clickable: false
 			       },
 			       xaxis: { mode: "time",minTickSize: [1, "minute"],
 					min: mintime,
@@ -134,17 +136,17 @@ if (Meteor.isClient) {
 				      },
 			       yaxis: { min:yaxismin, max: yaxismax},
 			       zoom: {
-				   interactive: !0
+				   interactive: false
 			       },
 			       pan: {
-				   interactive: true
+				   interactive: false
 			       },
 			       selection: { mode: "x"},
 			   }
 			  )
 	}
     };
-	Template.plot_0.rendered=function(){
+	Template.text.rendered=function(){
 	    MakePlots();
 	}
     // Inside the if (Meteor.isClient) block, right after Template.body.helpers:
@@ -154,75 +156,16 @@ if (Meteor.isClient) {
 	    console.log("HERE");
 	    return {"EVENT":1};
 	},
-	"change .hide-completed input": function (event) {
-	    Session.set("hideCompleted", event.target.checked);
-	},
-	"change .hide-other-users input": function(event){
-	    Session.set("hideOtherUsers", event.target.checked);
-	},
-	"click .toggle-checked": function () {
-	    // Set the checked property to the opposite of its current value
-	    Meteor.call("setChecked", this._id, !this.checked);
-	},
-	"click .delete": function () {
-	    Meteor.call("deleteTask", this._id);
-	},
-	"submit .new-task": function (event) {
-	    // This function is called when the new task form is submitted	    
-	    var text = event.target.text.value;
-	    Meteor.call("addTask", text);
-	    	    
-	    // Clear form
-	    event.target.text.value = "";
-	    
-	    // Prevent default form submit
-	    return false;
-	},
-	"click #sortbutton": function(){
-	    var order =  Session.get("sortOrder");
-	    order = order * -1;
-	    Session.set("sortOrder", order );
-
-	},
-	"click #sortkey": function(){
-	    var key = Session.get("sortKey");
-	    if(key == "createdAt")
-		key = "text";
-	    else 
-		key = "createdAt";
-	    Session.set("sortKey", key);
-	},
 	"click #refresh": function(){
 	    MakePlots();
 	}
     });
 
 
-    // At the bottom of the client code
-    Accounts.ui.config({
-	passwordSignupFields: "USERNAME_ONLY"
-    });
 }
 
-Meteor.methods({
+//Meteor.methods({
 
-    addTask: function(text){
-	if (! Meteor.userId()) {
-	    throw new Meteor.Error("not-authorized");
-	}
-	Tasks.insert({
-            text: text,
-            createdAt: new Date(), // current time                               
-            owner: Meteor.userId(),           // _id of logged in user           
-            username: Meteor.user().username  // username of logged in user      
-        });
-    },
-    deleteTask: function(taskId){
-	Tasks.remove(taskId);
-    },
-    setChecked: function (taskId, setChecked) {
-	Tasks.update(taskId, { $set: { checked: setChecked} });
-    }
-});
+//});
 
 })();
